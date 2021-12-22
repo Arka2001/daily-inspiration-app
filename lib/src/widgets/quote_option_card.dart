@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 class QuoteOptionCard extends StatelessWidget {
-  const QuoteOptionCard({Key? key}) : super(key: key);
+  final String title;
+  final Function() onTap;
+  const QuoteOptionCard({Key? key, required this.title, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey[300],
+      color: Colors.grey.shade500,
       child: ListTile(
-        title: Text(""),
+        title: Text(title, style: Theme.of(context).textTheme.bodyText1),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white),
+        onTap: onTap,
       ),
     );
   }

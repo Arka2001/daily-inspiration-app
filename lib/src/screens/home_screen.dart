@@ -1,7 +1,11 @@
+import 'package:daily_inspirations/src/screens/daily_quote.dart';
+import 'package:daily_inspirations/src/widgets/quote_option_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  static const routeName = '/';
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +27,19 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           height: 250,
           width: double.infinity,
-          child: ListView.builder(itemBuilder: (ctx, index) {
-            return Container();
-          }),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                QuoteOptionCard(
+                  title: quote_buttons[0],
+                  onTap: () => Navigator.of(context)
+                      .pushNamed(DailyQuoteScreen.routeName),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

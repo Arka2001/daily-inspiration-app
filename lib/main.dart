@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+import 'src/screens/daily_quote.dart';
+import 'src/screens/screens.dart';
+
 Future main() async {
   await dotenv.load(fileName: 'assets/.env');
   runApp(const MyApp());
@@ -37,7 +40,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Scaffold(),
+      initialRoute: HomeScreen.routeName,
+      routes: {
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+        DailyQuoteScreen.routeName: (ctx) => DailyQuoteScreen(),
+      },
     );
   }
 }
